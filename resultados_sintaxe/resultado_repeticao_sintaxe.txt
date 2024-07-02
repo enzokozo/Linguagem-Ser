@@ -1,0 +1,2 @@
+Analise Sintatica:
+('programa', [('declaracao', 'var1', 'int'), ('declaracao', 'var2', 'int'), ('input', 'var1'), ('atribuicao', 'var2', ('operacao', '*', 'var1', 2)), ('print', '"The result is"'), ('print', 'var2'), ('repeticao_for', ('atribuicao', 'var1', 0), ('relacional', 'var1', '<', 10), ('atribuicao', 'var1', ('operacao', '+', 'var1', 1)), [('print', '"Iteration"'), ('print', 'var1')]), ('repeticao_while', ('relacional', 'var1', '>', 0), [('atribuicao', 'var1', ('operacao', '-', 'var1', 1)), ('print', '"Countdown"'), ('print', 'var1')])])

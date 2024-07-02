@@ -1,0 +1,2 @@
+Analise Sintatica:
+('programa', [('declaracao', 'var1', 'int'), ('declaracao', 'var2', 'int'), ('input', 'var1'), ('atribuicao', 'var2', 'var1'), ('print', 'var2')])

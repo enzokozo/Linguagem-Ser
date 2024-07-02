@@ -1,0 +1,2 @@
+Analise Sintatica:
+('programa', [('declaracao', 'num', 'int'), ('input', 'num'), ('if', ('relacional', 'num', '>=', 0), [('print', '"O numero eh positivo"')], ('else', [('print', '"O numero eh negativo"')]))])

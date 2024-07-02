@@ -1,0 +1,7 @@
+commence
+    var1: int;
+    var2: int;
+    input{var1};
+    var2 = var1;
+    print{var2};
+terminate

@@ -1,0 +1,9 @@
+commence
+    num : int;
+    input {num};
+    if (num >= 0) begin
+        print {"O numero eh positivo"};
+    end else begin
+        print {"O numero eh negativo"};
+    end
+terminate

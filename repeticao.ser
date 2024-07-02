@@ -1,0 +1,17 @@
+commence
+    var1: int;
+    var2: int;
+    input{var1};
+    var2 = var1 * 2;
+    print {"The result is"};
+    print{var2};
+    for (var1 = 0; var1 < 10; var1 = var1 + 1) begin
+        print{"Iteration"};
+        print{var1};
+    end
+    while (var1 > 0) begin
+        var1 = var1 - 1;
+        print{"Countdown"};
+        print{var1};
+    end
+terminate

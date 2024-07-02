@@ -1,0 +1,1335 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ABREASPAS
+    ARGUMENTO
+    DECIMAL
+    DIFERENTE
+    DIGITO
+    DIVISAO
+    FECHAASPAS
+    IGUAL
+    LETRA
+    LOGICO
+    MAIOR
+    MAIORIGUAL
+    MENOR
+    MENORIGUAL
+    MOD
+    MULTIPLICACAO
+    SEPARADOR
+    SOMA
+    SUBTRACAO
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> INICIO comandos FIM
+Rule 2     comandos -> comando comandos
+Rule 3     comandos -> comando
+Rule 4     comando -> declaracao PONTOVIRGULA
+Rule 5     comando -> atribuicao PONTOVIRGULA
+Rule 6     comando -> input PONTOVIRGULA
+Rule 7     comando -> print PONTOVIRGULA
+Rule 8     comando -> condicional
+Rule 9     comando -> repeticao_for
+Rule 10    comando -> repeticao_while
+Rule 11    comando -> bloco
+Rule 12    declaracao -> VAR DOISPONTOS tipo
+Rule 13    tipo -> INT
+Rule 14    tipo -> REAL
+Rule 15    tipo -> CHAR
+Rule 16    atribuicao -> VAR RECEBE VAR
+Rule 17    atribuicao -> VAR RECEBE NUMERO
+Rule 18    atribuicao -> VAR RECEBE operacao
+Rule 19    input -> INPUT ABRECHAVES VAR FECHACHAVES
+Rule 20    print -> PRINT ABRECHAVES VAR FECHACHAVES
+Rule 21    print -> PRINT ABRECHAVES FRASE FECHACHAVES
+Rule 22    condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+Rule 23    else -> ELSE condicional
+Rule 24    else -> ELSE INICIOBLOCO comandos FIMBLOCO
+Rule 25    else -> empty
+Rule 26    repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+Rule 27    repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+Rule 28    bloco -> INICIOBLOCO comandos FIMBLOCO
+Rule 29    condicao -> condicao_logica
+Rule 30    condicao -> condicao_relacional
+Rule 31    condicao_logica -> condicao_logica AND condicao_logica
+Rule 32    condicao_logica -> condicao_logica OR condicao_logica
+Rule 33    condicao_logica -> NOT condicao
+Rule 34    condicao_relacional -> VAR RELACIONAL VAR
+Rule 35    condicao_relacional -> VAR RELACIONAL NUMERO
+Rule 36    operacao -> VAR INCREMENTA
+Rule 37    operacao -> VAR DECREMENTA
+Rule 38    operacao -> VAR ARITMETICO VAR
+Rule 39    operacao -> VAR ARITMETICO NUMERO
+Rule 40    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ABREASPAS            : 
+ABRECHAVES           : 19 20 21
+ABREPARENTESES       : 22 26 27
+AND                  : 31
+ARGUMENTO            : 
+ARITMETICO           : 38 39
+CHAR                 : 15
+DECIMAL              : 
+DECREMENTA           : 37
+DIFERENTE            : 
+DIGITO               : 
+DIVISAO              : 
+DOISPONTOS           : 12
+ELSE                 : 23 24
+FECHAASPAS           : 
+FECHACHAVES          : 19 20 21
+FECHAPARENTESES      : 22 26 27
+FIM                  : 1
+FIMBLOCO             : 22 24 26 27 28
+FOR                  : 26
+FRASE                : 21
+IF                   : 22
+IGUAL                : 
+INCREMENTA           : 36
+INICIO               : 1
+INICIOBLOCO          : 22 24 26 27 28
+INPUT                : 19
+INT                  : 13
+LETRA                : 
+LOGICO               : 
+MAIOR                : 
+MAIORIGUAL           : 
+MENOR                : 
+MENORIGUAL           : 
+MOD                  : 
+MULTIPLICACAO        : 
+NOT                  : 33
+NUMERO               : 17 35 39
+OR                   : 32
+PONTOVIRGULA         : 4 5 6 7 26 26
+PRINT                : 20 21
+REAL                 : 14
+RECEBE               : 16 17 18
+RELACIONAL           : 34 35
+SEPARADOR            : 
+SOMA                 : 
+SUBTRACAO            : 
+VAR                  : 12 16 16 17 18 19 20 34 34 35 36 37 38 38 39
+WHILE                : 27
+error                : 
+
+Nonterminals, with rules where they appear
+
+atribuicao           : 5 26 26
+bloco                : 11
+comando              : 2 3
+comandos             : 1 2 22 24 26 27 28
+condicao             : 22 26 27 33
+condicao_logica      : 29 31 31 32 32
+condicao_relacional  : 30
+condicional          : 8 23
+declaracao           : 4
+else                 : 22
+empty                : 25
+input                : 6
+operacao             : 18
+print                : 7
+programa             : 0
+repeticao_for        : 9
+repeticao_while      : 10
+tipo                 : 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . INICIO comandos FIM
+
+    INICIO          shift and go to state 2
+
+    programa                       shift and go to state 1
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> INICIO . comandos FIM
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comandos                       shift and go to state 3
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 3
+
+    (1) programa -> INICIO comandos . FIM
+
+    FIM             shift and go to state 20
+
+
+state 4
+
+    (2) comandos -> comando . comandos
+    (3) comandos -> comando .
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    FIM             reduce using rule 3 (comandos -> comando .)
+    FIMBLOCO        reduce using rule 3 (comandos -> comando .)
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comando                        shift and go to state 4
+    comandos                       shift and go to state 21
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 5
+
+    (4) comando -> declaracao . PONTOVIRGULA
+
+    PONTOVIRGULA    shift and go to state 22
+
+
+state 6
+
+    (5) comando -> atribuicao . PONTOVIRGULA
+
+    PONTOVIRGULA    shift and go to state 23
+
+
+state 7
+
+    (6) comando -> input . PONTOVIRGULA
+
+    PONTOVIRGULA    shift and go to state 24
+
+
+state 8
+
+    (7) comando -> print . PONTOVIRGULA
+
+    PONTOVIRGULA    shift and go to state 25
+
+
+state 9
+
+    (8) comando -> condicional .
+
+    VAR             reduce using rule 8 (comando -> condicional .)
+    INPUT           reduce using rule 8 (comando -> condicional .)
+    PRINT           reduce using rule 8 (comando -> condicional .)
+    IF              reduce using rule 8 (comando -> condicional .)
+    FOR             reduce using rule 8 (comando -> condicional .)
+    WHILE           reduce using rule 8 (comando -> condicional .)
+    INICIOBLOCO     reduce using rule 8 (comando -> condicional .)
+    FIM             reduce using rule 8 (comando -> condicional .)
+    FIMBLOCO        reduce using rule 8 (comando -> condicional .)
+
+
+state 10
+
+    (9) comando -> repeticao_for .
+
+    VAR             reduce using rule 9 (comando -> repeticao_for .)
+    INPUT           reduce using rule 9 (comando -> repeticao_for .)
+    PRINT           reduce using rule 9 (comando -> repeticao_for .)
+    IF              reduce using rule 9 (comando -> repeticao_for .)
+    FOR             reduce using rule 9 (comando -> repeticao_for .)
+    WHILE           reduce using rule 9 (comando -> repeticao_for .)
+    INICIOBLOCO     reduce using rule 9 (comando -> repeticao_for .)
+    FIM             reduce using rule 9 (comando -> repeticao_for .)
+    FIMBLOCO        reduce using rule 9 (comando -> repeticao_for .)
+
+
+state 11
+
+    (10) comando -> repeticao_while .
+
+    VAR             reduce using rule 10 (comando -> repeticao_while .)
+    INPUT           reduce using rule 10 (comando -> repeticao_while .)
+    PRINT           reduce using rule 10 (comando -> repeticao_while .)
+    IF              reduce using rule 10 (comando -> repeticao_while .)
+    FOR             reduce using rule 10 (comando -> repeticao_while .)
+    WHILE           reduce using rule 10 (comando -> repeticao_while .)
+    INICIOBLOCO     reduce using rule 10 (comando -> repeticao_while .)
+    FIM             reduce using rule 10 (comando -> repeticao_while .)
+    FIMBLOCO        reduce using rule 10 (comando -> repeticao_while .)
+
+
+state 12
+
+    (11) comando -> bloco .
+
+    VAR             reduce using rule 11 (comando -> bloco .)
+    INPUT           reduce using rule 11 (comando -> bloco .)
+    PRINT           reduce using rule 11 (comando -> bloco .)
+    IF              reduce using rule 11 (comando -> bloco .)
+    FOR             reduce using rule 11 (comando -> bloco .)
+    WHILE           reduce using rule 11 (comando -> bloco .)
+    INICIOBLOCO     reduce using rule 11 (comando -> bloco .)
+    FIM             reduce using rule 11 (comando -> bloco .)
+    FIMBLOCO        reduce using rule 11 (comando -> bloco .)
+
+
+state 13
+
+    (12) declaracao -> VAR . DOISPONTOS tipo
+    (16) atribuicao -> VAR . RECEBE VAR
+    (17) atribuicao -> VAR . RECEBE NUMERO
+    (18) atribuicao -> VAR . RECEBE operacao
+
+    DOISPONTOS      shift and go to state 26
+    RECEBE          shift and go to state 27
+
+
+state 14
+
+    (19) input -> INPUT . ABRECHAVES VAR FECHACHAVES
+
+    ABRECHAVES      shift and go to state 28
+
+
+state 15
+
+    (20) print -> PRINT . ABRECHAVES VAR FECHACHAVES
+    (21) print -> PRINT . ABRECHAVES FRASE FECHACHAVES
+
+    ABRECHAVES      shift and go to state 29
+
+
+state 16
+
+    (22) condicional -> IF . ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+
+    ABREPARENTESES  shift and go to state 30
+
+
+state 17
+
+    (28) bloco -> INICIOBLOCO . comandos FIMBLOCO
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comandos                       shift and go to state 31
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 18
+
+    (26) repeticao_for -> FOR . ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    ABREPARENTESES  shift and go to state 32
+
+
+state 19
+
+    (27) repeticao_while -> WHILE . ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    ABREPARENTESES  shift and go to state 33
+
+
+state 20
+
+    (1) programa -> INICIO comandos FIM .
+
+    $end            reduce using rule 1 (programa -> INICIO comandos FIM .)
+
+
+state 21
+
+    (2) comandos -> comando comandos .
+
+    FIM             reduce using rule 2 (comandos -> comando comandos .)
+    FIMBLOCO        reduce using rule 2 (comandos -> comando comandos .)
+
+
+state 22
+
+    (4) comando -> declaracao PONTOVIRGULA .
+
+    VAR             reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    INPUT           reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    PRINT           reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    IF              reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    FOR             reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    WHILE           reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    INICIOBLOCO     reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    FIM             reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+    FIMBLOCO        reduce using rule 4 (comando -> declaracao PONTOVIRGULA .)
+
+
+state 23
+
+    (5) comando -> atribuicao PONTOVIRGULA .
+
+    VAR             reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    INPUT           reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    PRINT           reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    IF              reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    FOR             reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    WHILE           reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    INICIOBLOCO     reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    FIM             reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+    FIMBLOCO        reduce using rule 5 (comando -> atribuicao PONTOVIRGULA .)
+
+
+state 24
+
+    (6) comando -> input PONTOVIRGULA .
+
+    VAR             reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    INPUT           reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    PRINT           reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    IF              reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    FOR             reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    WHILE           reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    INICIOBLOCO     reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    FIM             reduce using rule 6 (comando -> input PONTOVIRGULA .)
+    FIMBLOCO        reduce using rule 6 (comando -> input PONTOVIRGULA .)
+
+
+state 25
+
+    (7) comando -> print PONTOVIRGULA .
+
+    VAR             reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    INPUT           reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    PRINT           reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    IF              reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    FOR             reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    WHILE           reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    INICIOBLOCO     reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    FIM             reduce using rule 7 (comando -> print PONTOVIRGULA .)
+    FIMBLOCO        reduce using rule 7 (comando -> print PONTOVIRGULA .)
+
+
+state 26
+
+    (12) declaracao -> VAR DOISPONTOS . tipo
+    (13) tipo -> . INT
+    (14) tipo -> . REAL
+    (15) tipo -> . CHAR
+
+    INT             shift and go to state 35
+    REAL            shift and go to state 36
+    CHAR            shift and go to state 37
+
+    tipo                           shift and go to state 34
+
+state 27
+
+    (16) atribuicao -> VAR RECEBE . VAR
+    (17) atribuicao -> VAR RECEBE . NUMERO
+    (18) atribuicao -> VAR RECEBE . operacao
+    (36) operacao -> . VAR INCREMENTA
+    (37) operacao -> . VAR DECREMENTA
+    (38) operacao -> . VAR ARITMETICO VAR
+    (39) operacao -> . VAR ARITMETICO NUMERO
+
+    VAR             shift and go to state 38
+    NUMERO          shift and go to state 39
+
+    operacao                       shift and go to state 40
+
+state 28
+
+    (19) input -> INPUT ABRECHAVES . VAR FECHACHAVES
+
+    VAR             shift and go to state 41
+
+
+state 29
+
+    (20) print -> PRINT ABRECHAVES . VAR FECHACHAVES
+    (21) print -> PRINT ABRECHAVES . FRASE FECHACHAVES
+
+    VAR             shift and go to state 42
+    FRASE           shift and go to state 43
+
+
+state 30
+
+    (22) condicional -> IF ABREPARENTESES . condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (29) condicao -> . condicao_logica
+    (30) condicao -> . condicao_relacional
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+    (34) condicao_relacional -> . VAR RELACIONAL VAR
+    (35) condicao_relacional -> . VAR RELACIONAL NUMERO
+
+    NOT             shift and go to state 47
+    VAR             shift and go to state 48
+
+    condicao                       shift and go to state 44
+    condicao_logica                shift and go to state 45
+    condicao_relacional            shift and go to state 46
+
+state 31
+
+    (28) bloco -> INICIOBLOCO comandos . FIMBLOCO
+
+    FIMBLOCO        shift and go to state 49
+
+
+state 32
+
+    (26) repeticao_for -> FOR ABREPARENTESES . atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+
+    VAR             shift and go to state 51
+
+    atribuicao                     shift and go to state 50
+
+state 33
+
+    (27) repeticao_while -> WHILE ABREPARENTESES . condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (29) condicao -> . condicao_logica
+    (30) condicao -> . condicao_relacional
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+    (34) condicao_relacional -> . VAR RELACIONAL VAR
+    (35) condicao_relacional -> . VAR RELACIONAL NUMERO
+
+    NOT             shift and go to state 47
+    VAR             shift and go to state 48
+
+    condicao                       shift and go to state 52
+    condicao_logica                shift and go to state 45
+    condicao_relacional            shift and go to state 46
+
+state 34
+
+    (12) declaracao -> VAR DOISPONTOS tipo .
+
+    PONTOVIRGULA    reduce using rule 12 (declaracao -> VAR DOISPONTOS tipo .)
+
+
+state 35
+
+    (13) tipo -> INT .
+
+    PONTOVIRGULA    reduce using rule 13 (tipo -> INT .)
+
+
+state 36
+
+    (14) tipo -> REAL .
+
+    PONTOVIRGULA    reduce using rule 14 (tipo -> REAL .)
+
+
+state 37
+
+    (15) tipo -> CHAR .
+
+    PONTOVIRGULA    reduce using rule 15 (tipo -> CHAR .)
+
+
+state 38
+
+    (16) atribuicao -> VAR RECEBE VAR .
+    (36) operacao -> VAR . INCREMENTA
+    (37) operacao -> VAR . DECREMENTA
+    (38) operacao -> VAR . ARITMETICO VAR
+    (39) operacao -> VAR . ARITMETICO NUMERO
+
+    PONTOVIRGULA    reduce using rule 16 (atribuicao -> VAR RECEBE VAR .)
+    FECHAPARENTESES reduce using rule 16 (atribuicao -> VAR RECEBE VAR .)
+    INCREMENTA      shift and go to state 53
+    DECREMENTA      shift and go to state 54
+    ARITMETICO      shift and go to state 55
+
+
+state 39
+
+    (17) atribuicao -> VAR RECEBE NUMERO .
+
+    PONTOVIRGULA    reduce using rule 17 (atribuicao -> VAR RECEBE NUMERO .)
+    FECHAPARENTESES reduce using rule 17 (atribuicao -> VAR RECEBE NUMERO .)
+
+
+state 40
+
+    (18) atribuicao -> VAR RECEBE operacao .
+
+    PONTOVIRGULA    reduce using rule 18 (atribuicao -> VAR RECEBE operacao .)
+    FECHAPARENTESES reduce using rule 18 (atribuicao -> VAR RECEBE operacao .)
+
+
+state 41
+
+    (19) input -> INPUT ABRECHAVES VAR . FECHACHAVES
+
+    FECHACHAVES     shift and go to state 56
+
+
+state 42
+
+    (20) print -> PRINT ABRECHAVES VAR . FECHACHAVES
+
+    FECHACHAVES     shift and go to state 57
+
+
+state 43
+
+    (21) print -> PRINT ABRECHAVES FRASE . FECHACHAVES
+
+    FECHACHAVES     shift and go to state 58
+
+
+state 44
+
+    (22) condicional -> IF ABREPARENTESES condicao . FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+
+    FECHAPARENTESES shift and go to state 59
+
+
+state 45
+
+    (29) condicao -> condicao_logica .
+    (31) condicao_logica -> condicao_logica . AND condicao_logica
+    (32) condicao_logica -> condicao_logica . OR condicao_logica
+
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+    FECHAPARENTESES reduce using rule 29 (condicao -> condicao_logica .)
+    PONTOVIRGULA    reduce using rule 29 (condicao -> condicao_logica .)
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+  ! AND             [ reduce using rule 29 (condicao -> condicao_logica .) ]
+  ! OR              [ reduce using rule 29 (condicao -> condicao_logica .) ]
+
+
+state 46
+
+    (30) condicao -> condicao_relacional .
+
+    FECHAPARENTESES reduce using rule 30 (condicao -> condicao_relacional .)
+    AND             reduce using rule 30 (condicao -> condicao_relacional .)
+    OR              reduce using rule 30 (condicao -> condicao_relacional .)
+    PONTOVIRGULA    reduce using rule 30 (condicao -> condicao_relacional .)
+
+
+state 47
+
+    (33) condicao_logica -> NOT . condicao
+    (29) condicao -> . condicao_logica
+    (30) condicao -> . condicao_relacional
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+    (34) condicao_relacional -> . VAR RELACIONAL VAR
+    (35) condicao_relacional -> . VAR RELACIONAL NUMERO
+
+    NOT             shift and go to state 47
+    VAR             shift and go to state 48
+
+    condicao                       shift and go to state 62
+    condicao_logica                shift and go to state 45
+    condicao_relacional            shift and go to state 46
+
+state 48
+
+    (34) condicao_relacional -> VAR . RELACIONAL VAR
+    (35) condicao_relacional -> VAR . RELACIONAL NUMERO
+
+    RELACIONAL      shift and go to state 63
+
+
+state 49
+
+    (28) bloco -> INICIOBLOCO comandos FIMBLOCO .
+
+    VAR             reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    INPUT           reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    PRINT           reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    IF              reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    FOR             reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    WHILE           reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    INICIOBLOCO     reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    FIM             reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+    FIMBLOCO        reduce using rule 28 (bloco -> INICIOBLOCO comandos FIMBLOCO .)
+
+
+state 50
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao . PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    PONTOVIRGULA    shift and go to state 64
+
+
+state 51
+
+    (16) atribuicao -> VAR . RECEBE VAR
+    (17) atribuicao -> VAR . RECEBE NUMERO
+    (18) atribuicao -> VAR . RECEBE operacao
+
+    RECEBE          shift and go to state 27
+
+
+state 52
+
+    (27) repeticao_while -> WHILE ABREPARENTESES condicao . FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    FECHAPARENTESES shift and go to state 65
+
+
+state 53
+
+    (36) operacao -> VAR INCREMENTA .
+
+    PONTOVIRGULA    reduce using rule 36 (operacao -> VAR INCREMENTA .)
+    FECHAPARENTESES reduce using rule 36 (operacao -> VAR INCREMENTA .)
+
+
+state 54
+
+    (37) operacao -> VAR DECREMENTA .
+
+    PONTOVIRGULA    reduce using rule 37 (operacao -> VAR DECREMENTA .)
+    FECHAPARENTESES reduce using rule 37 (operacao -> VAR DECREMENTA .)
+
+
+state 55
+
+    (38) operacao -> VAR ARITMETICO . VAR
+    (39) operacao -> VAR ARITMETICO . NUMERO
+
+    VAR             shift and go to state 66
+    NUMERO          shift and go to state 67
+
+
+state 56
+
+    (19) input -> INPUT ABRECHAVES VAR FECHACHAVES .
+
+    PONTOVIRGULA    reduce using rule 19 (input -> INPUT ABRECHAVES VAR FECHACHAVES .)
+
+
+state 57
+
+    (20) print -> PRINT ABRECHAVES VAR FECHACHAVES .
+
+    PONTOVIRGULA    reduce using rule 20 (print -> PRINT ABRECHAVES VAR FECHACHAVES .)
+
+
+state 58
+
+    (21) print -> PRINT ABRECHAVES FRASE FECHACHAVES .
+
+    PONTOVIRGULA    reduce using rule 21 (print -> PRINT ABRECHAVES FRASE FECHACHAVES .)
+
+
+state 59
+
+    (22) condicional -> IF ABREPARENTESES condicao FECHAPARENTESES . INICIOBLOCO comandos FIMBLOCO else
+
+    INICIOBLOCO     shift and go to state 68
+
+
+state 60
+
+    (31) condicao_logica -> condicao_logica AND . condicao_logica
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+
+    NOT             shift and go to state 47
+
+    condicao_logica                shift and go to state 69
+
+state 61
+
+    (32) condicao_logica -> condicao_logica OR . condicao_logica
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+
+    NOT             shift and go to state 47
+
+    condicao_logica                shift and go to state 70
+
+state 62
+
+    (33) condicao_logica -> NOT condicao .
+
+    AND             reduce using rule 33 (condicao_logica -> NOT condicao .)
+    OR              reduce using rule 33 (condicao_logica -> NOT condicao .)
+    FECHAPARENTESES reduce using rule 33 (condicao_logica -> NOT condicao .)
+    PONTOVIRGULA    reduce using rule 33 (condicao_logica -> NOT condicao .)
+
+
+state 63
+
+    (34) condicao_relacional -> VAR RELACIONAL . VAR
+    (35) condicao_relacional -> VAR RELACIONAL . NUMERO
+
+    VAR             shift and go to state 71
+    NUMERO          shift and go to state 72
+
+
+state 64
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA . condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (29) condicao -> . condicao_logica
+    (30) condicao -> . condicao_relacional
+    (31) condicao_logica -> . condicao_logica AND condicao_logica
+    (32) condicao_logica -> . condicao_logica OR condicao_logica
+    (33) condicao_logica -> . NOT condicao
+    (34) condicao_relacional -> . VAR RELACIONAL VAR
+    (35) condicao_relacional -> . VAR RELACIONAL NUMERO
+
+    NOT             shift and go to state 47
+    VAR             shift and go to state 48
+
+    condicao                       shift and go to state 73
+    condicao_logica                shift and go to state 45
+    condicao_relacional            shift and go to state 46
+
+state 65
+
+    (27) repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES . INICIOBLOCO comandos FIMBLOCO
+
+    INICIOBLOCO     shift and go to state 74
+
+
+state 66
+
+    (38) operacao -> VAR ARITMETICO VAR .
+
+    PONTOVIRGULA    reduce using rule 38 (operacao -> VAR ARITMETICO VAR .)
+    FECHAPARENTESES reduce using rule 38 (operacao -> VAR ARITMETICO VAR .)
+
+
+state 67
+
+    (39) operacao -> VAR ARITMETICO NUMERO .
+
+    PONTOVIRGULA    reduce using rule 39 (operacao -> VAR ARITMETICO NUMERO .)
+    FECHAPARENTESES reduce using rule 39 (operacao -> VAR ARITMETICO NUMERO .)
+
+
+state 68
+
+    (22) condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO . comandos FIMBLOCO else
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comandos                       shift and go to state 75
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 69
+
+    (31) condicao_logica -> condicao_logica AND condicao_logica .
+    (31) condicao_logica -> condicao_logica . AND condicao_logica
+    (32) condicao_logica -> condicao_logica . OR condicao_logica
+
+    AND             reduce using rule 31 (condicao_logica -> condicao_logica AND condicao_logica .)
+    OR              reduce using rule 31 (condicao_logica -> condicao_logica AND condicao_logica .)
+    FECHAPARENTESES reduce using rule 31 (condicao_logica -> condicao_logica AND condicao_logica .)
+    PONTOVIRGULA    reduce using rule 31 (condicao_logica -> condicao_logica AND condicao_logica .)
+
+  ! AND             [ shift and go to state 60 ]
+  ! OR              [ shift and go to state 61 ]
+
+
+state 70
+
+    (32) condicao_logica -> condicao_logica OR condicao_logica .
+    (31) condicao_logica -> condicao_logica . AND condicao_logica
+    (32) condicao_logica -> condicao_logica . OR condicao_logica
+
+    AND             reduce using rule 32 (condicao_logica -> condicao_logica OR condicao_logica .)
+    OR              reduce using rule 32 (condicao_logica -> condicao_logica OR condicao_logica .)
+    FECHAPARENTESES reduce using rule 32 (condicao_logica -> condicao_logica OR condicao_logica .)
+    PONTOVIRGULA    reduce using rule 32 (condicao_logica -> condicao_logica OR condicao_logica .)
+
+  ! AND             [ shift and go to state 60 ]
+  ! OR              [ shift and go to state 61 ]
+
+
+state 71
+
+    (34) condicao_relacional -> VAR RELACIONAL VAR .
+
+    FECHAPARENTESES reduce using rule 34 (condicao_relacional -> VAR RELACIONAL VAR .)
+    AND             reduce using rule 34 (condicao_relacional -> VAR RELACIONAL VAR .)
+    OR              reduce using rule 34 (condicao_relacional -> VAR RELACIONAL VAR .)
+    PONTOVIRGULA    reduce using rule 34 (condicao_relacional -> VAR RELACIONAL VAR .)
+
+
+state 72
+
+    (35) condicao_relacional -> VAR RELACIONAL NUMERO .
+
+    FECHAPARENTESES reduce using rule 35 (condicao_relacional -> VAR RELACIONAL NUMERO .)
+    AND             reduce using rule 35 (condicao_relacional -> VAR RELACIONAL NUMERO .)
+    OR              reduce using rule 35 (condicao_relacional -> VAR RELACIONAL NUMERO .)
+    PONTOVIRGULA    reduce using rule 35 (condicao_relacional -> VAR RELACIONAL NUMERO .)
+
+
+state 73
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao . PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    PONTOVIRGULA    shift and go to state 76
+
+
+state 74
+
+    (27) repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO . comandos FIMBLOCO
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comandos                       shift and go to state 77
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 75
+
+    (22) condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos . FIMBLOCO else
+
+    FIMBLOCO        shift and go to state 78
+
+
+state 76
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA . atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+
+    VAR             shift and go to state 51
+
+    atribuicao                     shift and go to state 79
+
+state 77
+
+    (27) repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos . FIMBLOCO
+
+    FIMBLOCO        shift and go to state 80
+
+
+state 78
+
+    (22) condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO . else
+    (23) else -> . ELSE condicional
+    (24) else -> . ELSE INICIOBLOCO comandos FIMBLOCO
+    (25) else -> . empty
+    (40) empty -> .
+
+    ELSE            shift and go to state 82
+    VAR             reduce using rule 40 (empty -> .)
+    INPUT           reduce using rule 40 (empty -> .)
+    PRINT           reduce using rule 40 (empty -> .)
+    IF              reduce using rule 40 (empty -> .)
+    FOR             reduce using rule 40 (empty -> .)
+    WHILE           reduce using rule 40 (empty -> .)
+    INICIOBLOCO     reduce using rule 40 (empty -> .)
+    FIM             reduce using rule 40 (empty -> .)
+    FIMBLOCO        reduce using rule 40 (empty -> .)
+
+    else                           shift and go to state 81
+    empty                          shift and go to state 83
+
+state 79
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao . FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+
+    FECHAPARENTESES shift and go to state 84
+
+
+state 80
+
+    (27) repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .
+
+    VAR             reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    INPUT           reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    PRINT           reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    IF              reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FOR             reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    WHILE           reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    INICIOBLOCO     reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FIM             reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FIMBLOCO        reduce using rule 27 (repeticao_while -> WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+
+
+state 81
+
+    (22) condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .
+
+    VAR             reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    INPUT           reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    PRINT           reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    IF              reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    FOR             reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    WHILE           reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    INICIOBLOCO     reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    FIM             reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+    FIMBLOCO        reduce using rule 22 (condicional -> IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else .)
+
+
+state 82
+
+    (23) else -> ELSE . condicional
+    (24) else -> ELSE . INICIOBLOCO comandos FIMBLOCO
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+
+    INICIOBLOCO     shift and go to state 86
+    IF              shift and go to state 16
+
+    condicional                    shift and go to state 85
+
+state 83
+
+    (25) else -> empty .
+
+    VAR             reduce using rule 25 (else -> empty .)
+    INPUT           reduce using rule 25 (else -> empty .)
+    PRINT           reduce using rule 25 (else -> empty .)
+    IF              reduce using rule 25 (else -> empty .)
+    FOR             reduce using rule 25 (else -> empty .)
+    WHILE           reduce using rule 25 (else -> empty .)
+    INICIOBLOCO     reduce using rule 25 (else -> empty .)
+    FIM             reduce using rule 25 (else -> empty .)
+    FIMBLOCO        reduce using rule 25 (else -> empty .)
+
+
+state 84
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES . INICIOBLOCO comandos FIMBLOCO
+
+    INICIOBLOCO     shift and go to state 87
+
+
+state 85
+
+    (23) else -> ELSE condicional .
+
+    VAR             reduce using rule 23 (else -> ELSE condicional .)
+    INPUT           reduce using rule 23 (else -> ELSE condicional .)
+    PRINT           reduce using rule 23 (else -> ELSE condicional .)
+    IF              reduce using rule 23 (else -> ELSE condicional .)
+    FOR             reduce using rule 23 (else -> ELSE condicional .)
+    WHILE           reduce using rule 23 (else -> ELSE condicional .)
+    INICIOBLOCO     reduce using rule 23 (else -> ELSE condicional .)
+    FIM             reduce using rule 23 (else -> ELSE condicional .)
+    FIMBLOCO        reduce using rule 23 (else -> ELSE condicional .)
+
+
+state 86
+
+    (24) else -> ELSE INICIOBLOCO . comandos FIMBLOCO
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    comandos                       shift and go to state 88
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    atribuicao                     shift and go to state 6
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 87
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO . comandos FIMBLOCO
+    (2) comandos -> . comando comandos
+    (3) comandos -> . comando
+    (4) comando -> . declaracao PONTOVIRGULA
+    (5) comando -> . atribuicao PONTOVIRGULA
+    (6) comando -> . input PONTOVIRGULA
+    (7) comando -> . print PONTOVIRGULA
+    (8) comando -> . condicional
+    (9) comando -> . repeticao_for
+    (10) comando -> . repeticao_while
+    (11) comando -> . bloco
+    (12) declaracao -> . VAR DOISPONTOS tipo
+    (16) atribuicao -> . VAR RECEBE VAR
+    (17) atribuicao -> . VAR RECEBE NUMERO
+    (18) atribuicao -> . VAR RECEBE operacao
+    (19) input -> . INPUT ABRECHAVES VAR FECHACHAVES
+    (20) print -> . PRINT ABRECHAVES VAR FECHACHAVES
+    (21) print -> . PRINT ABRECHAVES FRASE FECHACHAVES
+    (22) condicional -> . IF ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO else
+    (26) repeticao_for -> . FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (27) repeticao_while -> . WHILE ABREPARENTESES condicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO
+    (28) bloco -> . INICIOBLOCO comandos FIMBLOCO
+
+    VAR             shift and go to state 13
+    INPUT           shift and go to state 14
+    PRINT           shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 18
+    WHILE           shift and go to state 19
+    INICIOBLOCO     shift and go to state 17
+
+    atribuicao                     shift and go to state 6
+    comandos                       shift and go to state 89
+    comando                        shift and go to state 4
+    declaracao                     shift and go to state 5
+    input                          shift and go to state 7
+    print                          shift and go to state 8
+    condicional                    shift and go to state 9
+    repeticao_for                  shift and go to state 10
+    repeticao_while                shift and go to state 11
+    bloco                          shift and go to state 12
+
+state 88
+
+    (24) else -> ELSE INICIOBLOCO comandos . FIMBLOCO
+
+    FIMBLOCO        shift and go to state 90
+
+
+state 89
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos . FIMBLOCO
+
+    FIMBLOCO        shift and go to state 91
+
+
+state 90
+
+    (24) else -> ELSE INICIOBLOCO comandos FIMBLOCO .
+
+    VAR             reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    INPUT           reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    PRINT           reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    IF              reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    FOR             reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    WHILE           reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    INICIOBLOCO     reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    FIM             reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+    FIMBLOCO        reduce using rule 24 (else -> ELSE INICIOBLOCO comandos FIMBLOCO .)
+
+
+state 91
+
+    (26) repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .
+
+    VAR             reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    INPUT           reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    PRINT           reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    IF              reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FOR             reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    WHILE           reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    INICIOBLOCO     reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FIM             reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+    FIMBLOCO        reduce using rule 26 (repeticao_for -> FOR ABREPARENTESES atribuicao PONTOVIRGULA condicao PONTOVIRGULA atribuicao FECHAPARENTESES INICIOBLOCO comandos FIMBLOCO .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for AND in state 45 resolved as shift
+WARNING: shift/reduce conflict for OR in state 45 resolved as shift
