@@ -75,10 +75,10 @@ def salvar_resultado(nome_arquivo, resultado, pasta_resultados):
 
 def main():
     """Função principal que executa todas as etapas: tokenização, análise sintática e tradução."""
-    arquivos = ['entrada_saida.ser', 'condicao.ser', 'repeticao.ser']
-    resultados_tokens = ['resultado_entrada_saida_tokens.txt', 'resultado_condicao_tokens.txt', 'resultado_repeticao_tokens.txt']
-    resultados_sintaxe = ['resultado_entrada_saida_sintaxe.txt', 'resultado_condicao_sintaxe.txt', 'resultado_repeticao_sintaxe.txt']
-    resultados_traducao = ['resultado_entrada_saida_traducao.py', 'resultado_condicao_traducao.py', 'resultado_repeticao_traducao.py']
+    arquivos = ['exemplos-ser\entrada_saida.ser', 'exemplos-ser\condicao.ser', 'exemplos-ser\loop.ser']
+    resultados_tokens = ['resultado_entrada_saida_tokens.txt', 'resultado_condicao_tokens.txt', 'resultado_loop_tokens.txt']
+    resultados_sintaxe = ['resultado_entrada_saida_sintaxe.txt', 'resultado_condicao_sintaxe.txt', 'resultado_loop_sintaxe.txt']
+    resultados_traducao = ['resultado_entrada_saida_traducao.py', 'resultado_condicao_traducao.py', 'resultado_loop_traducao.py']
 
     pasta_tokens = 'resultados_tokens'
     pasta_sintaxe = 'resultados_sintaxe'
